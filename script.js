@@ -33,7 +33,7 @@ function random(min,max){
 
 
 
-var velMax = 0.01;
+var velMax = 0.1;
 var poss = [
 new THREE.Vector2(),
 new THREE.Vector2(random(-250,250),random(-250,250))
