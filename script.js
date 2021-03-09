@@ -21,7 +21,7 @@ for(var i=0;i<lista.length;i++){
     var geometry = new THREE.BoxBufferGeometry( 15, 15, 15 );
     //if(i==0){
     modelo[i] = new THREE.Object3D();
-    cargarModelo('./modelo/panredu.glb',modelo[i]);
+    cargarModelo('./modelo/panredu2.glb',modelo[i]);
     modelo[i].scale.set(15,15,15);
 
     let luz1 = new THREE.PointLight( 0xff0000, 2, 100 );
