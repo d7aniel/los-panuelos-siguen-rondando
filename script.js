@@ -31,10 +31,7 @@ function random(min,max){
 var velMax = 0.01;
 var poss = [
 new THREE.Vector2(),
-new THREE.Vector2()(random(-250,250),random(-250,250)),
-new THREE.Vector2()(random(-250,250),random(-250,250)),
-new THREE.Vector2()(random(-250,250),random(-250,250)),
-new THREE.Vector2()(random(-250,250),random(-250,250))
+new THREE.Vector2(random(-250,250),random(-250,250))
 ];
 var pos = new THREE.Vector2();
 var vel = new THREE.Vector2(random(-velMax,velMax),random(-velMax,velMax));
@@ -42,7 +39,7 @@ var vel = new THREE.Vector2(random(-velMax,velMax),random(-velMax,velMax));
 function mover() {
       requestAnimationFrame(mover);
   for(let i=0;i<poss.length;i++){
-    let vecInfo = alejar(poss);
+    let vecInfo = alejar(poss[i]);
     if(vecInfo.usable){
         vel.add(vecInfo.vec);
         vel.clampLength(-velMax,velMax);
@@ -54,11 +51,11 @@ function mover() {
 mover();
 
 function alejar(vec) {
-  var desiredseparation = radio;
+  var desiredseparation = 70;
   var d = vec.distanceTo(pos);
   var usable =  true;
+   var diff = new THREE.Vector2();
   if (d!=0 && (d < desiredseparation)) {
-      var diff = new THREE.Vector2();
       diff.subVectors(pos, vec);
       diff.normalize();
       diff.divideScalar(d);
@@ -66,7 +63,7 @@ function alejar(vec) {
       usable = false
   }
 
-  if (diff.mag() > 0 && usable) {
+  if (diff.length() > 0 && usable) {
     diff.normalize();
     diff.sub(vel);
     diff.clampLength(-velMax,velMax);
