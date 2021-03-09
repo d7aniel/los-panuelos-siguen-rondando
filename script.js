@@ -16,10 +16,10 @@ for(var i=0;i<lista.length;i++){
     //punto.setAttribute('gps-entity-place', 'latitude: '+listap[0].lt+' longitude: '+listap[0].lg+';');
     punto.setAttribute('gps-entity-place', `latitude: ${lista[i].lt}; longitude: ${lista[i].lg};`);
     escena.appendChild(punto);
-    var material = new THREE.MeshStandardMaterial( {color:0xffffff} );
+    var material = new THREE.MeshStandardMaterial( {color:0xffffff*Math.random()} );
     var geometry = new THREE.BoxBufferGeometry( 15, 15, 15 );
     modelo[i] = new THREE.Mesh( geometry, material );
-    punto.object3D.add( modelo );
+    punto.object3D.add( modelo[i] );
 }
 
 function random(min,max){
