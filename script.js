@@ -10,6 +10,7 @@ var lista = [
 
 var escena = document.querySelector('a-scene');
 var modelo = [];
+var material2 = new THREE.MeshStandardMaterial( {color:0xff0000} );
 for(var i=0;i<lista.length;i++){
     var punto = document.createElement('a-entity');//document.getElementById('plaza');
     punto.setAttribute('id','punto'+i);
@@ -18,12 +19,18 @@ for(var i=0;i<lista.length;i++){
     escena.appendChild(punto);
     var material = new THREE.MeshStandardMaterial( {color:0xffffff*Math.random()} );
     var geometry = new THREE.BoxBufferGeometry( 15, 15, 15 );
-    if(i==0){
-        modelo[i] = new THREE.Object3D();
-        cargarModelo('./modelo/panredu.glb',modelo[i]);
-    }else{
+    //if(i==0){
+    modelo[i] = new THREE.Object3D();
+    cargarModelo('./modelo/panredu.glb',modelo[i]);
+    modelo[i].scale.set(15,15,15);
+
+    /*let luz1 = new THREE.PointLight( 0xff0000, 2, 100 );
+    luz1.position.set(0,8,0);
+    modelo[i].add( luz1 );*/
+    
+    /*}else{
         modelo[i] = new THREE.Mesh( geometry, material );
-    }
+    }*/
     punto.object3D.add( modelo[i] );
 }
 
