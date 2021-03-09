@@ -10,15 +10,20 @@ var lista = [
 
 var escena = document.querySelector('a-scene');
 var modelo = [];
+var material2 = new THREE.MeshStandardMaterial( {color:0xff0000} );
 for(var i=0;i<lista.length;i++){
     var punto = document.createElement('a-entity');//document.getElementById('plaza');
     punto.setAttribute('id','punto'+i);
     //punto.setAttribute('gps-entity-place', 'latitude: '+listap[0].lt+' longitude: '+listap[0].lg+';');
     punto.setAttribute('gps-entity-place', `latitude: ${lista[i].lt}; longitude: ${lista[i].lg};`);
     escena.appendChild(punto);
-    var material = new THREE.MeshStandardMaterial( {color:0xffffff*Math.random()} );
+    var material = new THREE.MeshStandardMaterial( {color:0xffffff} );
     var geometry = new THREE.BoxBufferGeometry( 15, 15, 15 );
-    modelo[i] = new THREE.Mesh( geometry, material );
+    if(i==0){
+        modelo[i] = new THREE.Mesh( geometry, material2 );
+    }else{
+        modelo[i] = new THREE.Mesh( geometry, material );
+    }
     punto.object3D.add( modelo[i] );
 }
 
@@ -33,7 +38,7 @@ var poss = [
 new THREE.Vector2(),
 new THREE.Vector2(random(-250,250),random(-250,250))
 ];
-var pos = new THREE.Vector2();
+var pos = new THREE.Vector2(0.001,0);
 var vel = new THREE.Vector2(random(-velMax,velMax),random(-velMax,velMax));
 
 function mover() {
@@ -46,9 +51,9 @@ function mover() {
             pos.add(vel);
         }
     }
-    for(let i=0;i<poss.length;i++){
+    //for(let i=0;i<poss.length;i++){
         modelo[0].position.set(pos.x,0,pos.y);
-    }
+    //}
 }
 
 mover();
