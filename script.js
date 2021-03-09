@@ -24,9 +24,9 @@ for(var i=0;i<lista.length;i++){
     cargarModelo('./modelo/panredu.glb',modelo[i]);
     modelo[i].scale.set(15,15,15);
 
-    /*let luz1 = new THREE.PointLight( 0xff0000, 2, 100 );
+    let luz1 = new THREE.PointLight( 0xff0000, 2, 100 );
     luz1.position.set(0,8,0);
-    modelo[i].add( luz1 );*/
+    modelo[i].add( luz1 );
     
     /*}else{
         modelo[i] = new THREE.Mesh( geometry, material );
