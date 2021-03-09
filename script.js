@@ -1,5 +1,5 @@
 import * as THREE from 'https://unpkg.com/three@0.122.0/build/three.module.js';
-
+import {cargarModelo} from './CargarModelo.js';
 
 var lista = [
     {lt:-34.9209,lg:-57.9415},
@@ -10,17 +10,17 @@ var lista = [
 
 var escena = document.querySelector('a-scene');
 var modelo = [];
-var material2 = new THREE.MeshStandardMaterial( {color:0xff0000} );
 for(var i=0;i<lista.length;i++){
     var punto = document.createElement('a-entity');//document.getElementById('plaza');
     punto.setAttribute('id','punto'+i);
     //punto.setAttribute('gps-entity-place', 'latitude: '+listap[0].lt+' longitude: '+listap[0].lg+';');
     punto.setAttribute('gps-entity-place', `latitude: ${lista[i].lt}; longitude: ${lista[i].lg};`);
     escena.appendChild(punto);
-    var material = new THREE.MeshStandardMaterial( {color:0xffffff} );
+    var material = new THREE.MeshStandardMaterial( {color:0xffffff*Math.random()} );
     var geometry = new THREE.BoxBufferGeometry( 15, 15, 15 );
     if(i==0){
-        modelo[i] = new THREE.Mesh( geometry, material2 );
+        modelo[i] = new THREE.Object3D();
+        cargarModelo('./modelo/panredu.glb',modelo[i]);
     }else{
         modelo[i] = new THREE.Mesh( geometry, material );
     }
