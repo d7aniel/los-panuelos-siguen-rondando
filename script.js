@@ -5,7 +5,7 @@ import {Particula} from './Particula.js';
 
 var particulas = [];
 var panuelo = new THREE.Object3D();
-var cant = 10;
+var cant = 20;
 var radio = 70;
 var lista = [
     {lt:-34.914454,lg:-57.946792},
@@ -32,9 +32,11 @@ cargarModelo('./modelo/panredu2.glb',panuelo);
 panuelo.scale.set(15,15,15);
 
 var objeto = new THREE.Object3D();
-const luz1 = new THREE.PointLight( 0xffffff, 2, 100 );
-luz1.position.set(0,50,0);
-objeto.add( luz1 );
+for (let i=0; i<poss.length; i++) {
+    let luz1 = new THREE.PointLight( 0xffffff, 3, 100 );
+    luz1.position.set(poss[i].x,50,poss[i].y);
+    objeto.add( luz1 );
+}
 //let ambiental = new THREE.AmbientLight( 0x404040 ); // soft white light
 //objeto.add( ambiental );
 for (let i=0; i<cant; i++) {
@@ -61,7 +63,7 @@ animar();
 
 function mover() {
   for (let i=0; i<cant; i++) {
-    let acc =  particulas[i].alejar(poss[0], 70);
+    let acc =  particulas[i].alejar(poss[0], 30);
     let acc2 =  particulas[i].acercar(poss[0], 140);
     particulas[i].vel.add(acc);
     particulas[i].vel.add(acc2);
@@ -71,10 +73,10 @@ function mover() {
         particulas[i].vel.add(acc3);
       }
     }
-    for (let j=0; j<4; j++) {
+    /*for (let j=0; j<4; j++) {
       let acc3 =  particulas[i].alejar(poss[j+1], radio*0.5);
       particulas[i].vel.add(acc3);
-  }
+    }*/
     particulas[i].vel.clampLength(-particulas[i].velMax,particulas[i].velMax);
     particulas[i].pos.add(particulas[i].vel);
     particulas[i].actualizar();
