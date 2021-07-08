@@ -61,6 +61,8 @@ for(var p=0;p<puntos.length;p++){
     
 }
 
+console.log(puntos[0]);
+
 function animar(){
     requestAnimationFrame(animar);
     if(panuelo.children.length > 0){
