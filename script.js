@@ -11,8 +11,8 @@ var lista = [
     {lt:-34.9275039,lg:-57.9371359},
     {lt:-34.903582,lg:-57.969758},
     {lt:-34.53778008717742,lg:-58.49837191472498},  
-    //{lt:-42.762936720431135,lg: -65.03450371862945},
-    //{lt:-42.784705116470974,lg: -65.00860162317883},
+    {lt:-42.762936720431135,lg: -65.03450371862945},
+    {lt:-42.784705116470974,lg: -65.00860162317883},
     {lt:-42.78600319251691,lg:-65.00757861584869}
     
     //{lt:-34.903582,lg:-57.969758},
@@ -29,7 +29,7 @@ var poss = [
 
 var escena = document.querySelector('a-scene');
 var puntos = [];
-for(var i=0;i<4;i++){
+for(var i=0;i<6;i++){
     puntos[i] = document.createElement('a-entity');//document.getElementById('plaza');
     puntos[i].setAttribute('id','punto'+i);
     console.log("creando "+`latitude: ${lista[i].lt}; longitude: ${lista[i].lg};`);
