@@ -41,27 +41,21 @@ for(var i=0;i<3;i++){
 cargarModelo('./modelo/panredu2.glb',panuelo);
 panuelo.scale.set(15,15,15);
 
-var objetos = []
-for(var p=0;p<puntos.length;p++){
-    console.log("version 2 con varios puntos "+p)
-    objetos[p] = new THREE.Object3D();
-    for (let i=0; i<poss.length; i++) {
-        let luz1 = new THREE.PointLight( 0xffffff, 3, 100 );
-        luz1.position.set(poss[i].x,50,poss[i].y);
-        objetos[p].add( luz1 );
-    }
+var objeto = new THREE.Object3D();
+console.log("version 2 con varios puntos nuevitaaa ")
+for (let i=0; i<poss.length; i++) {
+    let luz1 = new THREE.PointLight( 0xffffff, 3, 100 );
+    luz1.position.set(poss[i].x,50,poss[i].y);
+    objeto.add( luz1 );
+}
 
 //let ambiental = new THREE.AmbientLight( 0x404040 ); // soft white light
 //objeto.add( ambiental );
-    for (let i=0; i<cant; i++) {
-      particulas[p*cant+i] = new Particula();
-      objetos[p].add(particulas[p*cant+i].modelo);
-    }
-    puntos[p].object3D.add( objetos[p] );
-    
-}
+for (let i=0; i<cant; i++) {
+  particulas[i] = new Particula();
+  objeto.add(particulas[i].modelo);
+}   
 
-console.log();
 var imprimirD = true;
 function animar(){
     requestAnimationFrame(animar);
@@ -81,10 +75,17 @@ function animar(){
             }
         }
         if(imprimir){
-            for(var i=0;i<puntos.length;i++){                
+            var menor = parseFloat(puntos[0].getAttribute('distance'))
+            var indice = 0;
+            for(var i=1;i<puntos.length;i++){                
                 console.log(puntos[i].getAttribute('distance'));
-                console.log(number(puntos[i].getAttribute('distance')));
-            }
+                if(parseFloat(puntos[i].getAttribute('distance'))<menor){
+                    indice = i
+                    menor = parseFloat(puntos[i].getAttribute('distance'));
+                }
+            }            
+            console.log(puntos[indice]);
+            puntos[indice].object3D.add( objeto );
             imprimirD = false;
         }
     }
