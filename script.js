@@ -43,7 +43,7 @@ panuelo.scale.set(15,15,15);
 
 var objetos = []
 for(var p=0;p<puntos.length;p++){
-    console.log("version con varios puntos "+p)
+    console.log("version 2 con varios puntos "+p)
     objetos[p] = new THREE.Object3D();
     for (let i=0; i<poss.length; i++) {
         let luz1 = new THREE.PointLight( 0xffffff, 3, 100 );
