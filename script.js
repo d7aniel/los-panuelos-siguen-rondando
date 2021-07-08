@@ -67,8 +67,8 @@ texto.style.top = "10px";
 texto.style.left = "50%";
 texto.style.transform= "translate(-50%,0%)";
 
-titulo.style.color = "#ffffff";
-subtitulo.style.color = "#ffffff";
+titulo.style.color = "#ff0000";
+subtitulo.style.color = "#ff0000";
 titulo.style.textAlign = "center"; 
 subtitulo.style.textAlign = "center"; 
 
