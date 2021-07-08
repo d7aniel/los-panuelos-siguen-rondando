@@ -61,8 +61,8 @@ for(var p=0;p<puntos.length;p++){
     
 }
 
-console.log(puntos[0]);
-
+console.log();
+var imprimirD = true;
 function animar(){
     requestAnimationFrame(animar);
     if(panuelo.children.length > 0){
@@ -71,6 +71,21 @@ function animar(){
                 particulas[i].modelo.add(panuelo.clone());
                 particulas[i].sinModelo = false;
             }
+        }
+    }
+    if(imprimirD){
+        var imprimir = true;
+        for(var i=0;i<puntos.length;i++){
+            if(puntos[i].getAttribute('distance')==undefined){
+                imprimir=false;
+            }
+        }
+        if(imprimir){
+            for(var i=0;i<puntos.length;i++){                
+                console.log(puntos[i].getAttribute('distance'));
+                console.log(number(puntos[i].getAttribute('distance')));
+            }
+            imprimirD = false;
         }
     }
     mover();
