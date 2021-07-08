@@ -55,7 +55,11 @@ for (let i=0; i<poss.length; i++) {
 for (let i=0; i<cant; i++) {
   particulas[i] = new Particula();
   objeto.add(particulas[i].modelo);
-}   
+}  
+
+var parrafo =  document.createElement("h1");
+parrafo.innerText = "Espere un momento buscando localizacion";
+document.body.append(parrafo);
 
 var imprimirD = true;
 function animar(){
@@ -87,6 +91,7 @@ function animar(){
             }            
             console.log(puntos[indice]);
             puntos[indice].object3D.add( objeto );
+            parrafo.remove();
             imprimirD = false;
         }
     }
