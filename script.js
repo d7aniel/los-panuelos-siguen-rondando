@@ -5,7 +5,7 @@ import {Particula} from './Particula.js';
 
 var particulas = [];
 var panuelo = new THREE.Object3D();
-var cant = 20;
+var cant = 15;
 var radio = 70;
 var lista = [
     {lt:-34.53778008717742,lg:-58.49837191472498},
@@ -26,7 +26,7 @@ var poss = [
 
 var escena = document.querySelector('a-scene');
 var puntos = [];
-for(var i=0;i<2;i++){
+for(var i=0;i<3;i++){
     puntos[i] = document.createElement('a-entity');//document.getElementById('plaza');
     puntos[i].setAttribute('id','punto'+i);
     console.log("creando "+`latitude: ${lista[i].lt}; longitude: ${lista[i].lg};`);
