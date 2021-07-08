@@ -9,7 +9,7 @@ var cant = 20;
 var radio = 70;
 var lista = [
     {lt:-34.914454,lg:-57.946792},
-    {lt:-34.920979,lg:-57.941662}       
+    {lt:-34.902955600669635,lg:-57.96845529131973}       
 ];
 var poss = [
   new THREE.Vector2(0, 0),
@@ -20,13 +20,16 @@ var poss = [
 ];
 
 var escena = document.querySelector('a-scene');
-var punto = document.createElement('a-entity');//document.getElementById('plaza');
-punto.setAttribute('id','punto'+1);
-punto.setAttribute('gps-entity-place', `latitude: ${lista[0].lt}; longitude: ${lista[0].lg};`);
-escena.appendChild(punto);
+var puntos = [];
+for(var i=0;i<lista.length;i++){
+    punto[i] = document.createElement('a-entity');//document.getElementById('plaza');
+    punto[i].setAttribute('id','punto'+i);
+    punto[i].setAttribute('gps-entity-place', `latitude: ${lista[i].lt}; longitude: ${lista[i].lg};`);
+    escena.appendChild(punto[i]);
+}
 //cargarModelo('./modelo/panredu.glb',modelo[i]);
 //modelo[i].scale.set(15,15,15);
-escena.appendChild(punto);
+    //escena.appendChild(punto);
 
 cargarModelo('./modelo/panredu2.glb',panuelo);
 panuelo.scale.set(15,15,15);
@@ -43,7 +46,9 @@ for (let i=0; i<cant; i++) {
   particulas[i] = new Particula();
   objeto.add(particulas[i].modelo);
 }
-punto.object3D.add( objeto );
+for(var i=0;i<lista.length;i++){
+    punto[i].object3D.add( objeto );
+}
 
 function animar(){
     requestAnimationFrame(animar);
