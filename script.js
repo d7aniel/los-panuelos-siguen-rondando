@@ -25,6 +25,7 @@ var puntos = [];
 for(var i=0;i<1;i++){
     puntos[i] = document.createElement('a-entity');//document.getElementById('plaza');
     puntos[i].setAttribute('id','punto'+i);
+    console.log("creando"+`latitude: ${lista[0].lt}; longitude: ${lista[0].lg};`);
     puntos[i].setAttribute('gps-entity-place', `latitude: ${lista[0].lt}; longitude: ${lista[0].lg};`);
     escena.appendChild(puntos[i]);
 }
