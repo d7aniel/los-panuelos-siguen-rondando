@@ -29,7 +29,7 @@ var poss = [
 
 var escena = document.querySelector('a-scene');
 var puntos = [];
-for(var i=0;i<3;i++){
+for(var i=0;i<4;i++){
     puntos[i] = document.createElement('a-entity');//document.getElementById('plaza');
     puntos[i].setAttribute('id','punto'+i);
     console.log("creando "+`latitude: ${lista[i].lt}; longitude: ${lista[i].lg};`);
