@@ -11,8 +11,9 @@ var lista = [
     {lt:-34.9275039,lg:-57.9371359},
     {lt:-34.903582,lg:-57.969758},
     {lt:-34.53778008717742,lg:-58.49837191472498},  
-    {lt:-42.762936720431135,lg: -65.03450371862945},
-    {lt:-42.784705116470974,lg: -65.00860162317883}
+    //{lt:-42.762936720431135,lg: -65.03450371862945},
+    //{lt:-42.784705116470974,lg: -65.00860162317883},
+    {lt:-42.78600319251691,lg:-65.00757861584869}
     
     //{lt:-34.903582,lg:-57.969758},
     //{lt:-34.914454,lg:-57.946792}//,
@@ -57,9 +58,18 @@ for (let i=0; i<cant; i++) {
   objeto.add(particulas[i].modelo);
 }  
 
-var parrafo =  document.createElement("h1");
-parrafo.innerText = "Espere un momento buscando localizacion";
-document.body.append(parrafo);
+
+var texto =  document.createElement("div");
+var titulo = document.createElement("h1");
+var subtitulo = document.createElement("h2");
+titulo.style.position = "absolute";
+titulo.style.top = "10px";
+titulo.style.color = "#ffffff";
+subtitulo.style.color = "#ffffff";
+
+texto.append(titulo);
+texto.append(subtitulo);
+document.body.append(texto);
 
 var imprimirD = true;
 function animar(){
@@ -91,7 +101,7 @@ function animar(){
             }            
             console.log(puntos[indice]);
             puntos[indice].object3D.add( objeto );
-            parrafo.remove();
+            texto.remove();
             imprimirD = false;
         }
     }
