@@ -8,7 +8,7 @@ var panuelo = new THREE.Object3D();
 var cant = 20;
 var radio = 70;
 var lista = [
-    {lt:-34.911953,lg:-57.980916},
+    {lt:-34.90891723172932,lg:-57.97660332957078},
     {lt:-34.914454,lg:-57.946792},
            
 ];
