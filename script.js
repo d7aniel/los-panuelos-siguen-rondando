@@ -36,20 +36,23 @@ for(var i=0;i<2;i++){
 cargarModelo('./modelo/panredu2.glb',panuelo);
 panuelo.scale.set(15,15,15);
 
-var objeto = new THREE.Object3D();
-for (let i=0; i<poss.length; i++) {
-    let luz1 = new THREE.PointLight( 0xffffff, 3, 100 );
-    luz1.position.set(poss[i].x,50,poss[i].y);
-    objeto.add( luz1 );
-}
+var objetos = []
+for(int p=0;p<puntos.length;p++){
+    objetos[p] = new THREE.Object3D();
+    for (let i=0; i<poss.length; i++) {
+        let luz1 = new THREE.PointLight( 0xffffff, 3, 100 );
+        luz1.position.set(poss[i].x,50,poss[i].y);
+        objetos[p].add( luz1 );
+    }
+
 //let ambiental = new THREE.AmbientLight( 0x404040 ); // soft white light
 //objeto.add( ambiental );
-for (let i=0; i<cant; i++) {
-  particulas[i] = new Particula();
-  objeto.add(particulas[i].modelo);
-}
-for(var i=0;i<puntos.length;i++){
-    puntos[i].object3D.add( objeto );
+    for (let i=0; i<cant; i++) {
+      particulas[p*cant+i] = new Particula();
+      objetos[p].add(particulas[i].modelo);
+    }
+    puntos[p].object3D.add( objetos[p] );
+    
 }
 
 function animar(){
@@ -69,7 +72,7 @@ animar();
 
 
 function mover() {
-  for (let i=0; i<cant; i++) {
+  for (let i=0; i<particulas.length; i++) {
     let acc =  particulas[i].alejar(poss[0], 30);
     let acc2 =  particulas[i].acercar(poss[0], 140);
     particulas[i].vel.add(acc);
