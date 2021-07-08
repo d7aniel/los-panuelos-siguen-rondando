@@ -66,6 +66,8 @@ texto.style.position = "absolute";
 texto.style.top = "10px";
 titulo.style.color = "#ffffff";
 subtitulo.style.color = "#ffffff";
+titulo.style.textAlign = "center"; 
+subtitulo.style.textAlign = "center"; 
 titulo.innerText = "Espere un momento";
 subtitulo.innerText = "Cargando ubicacion"
 texto.append(titulo);
