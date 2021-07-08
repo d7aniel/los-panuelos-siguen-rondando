@@ -37,7 +37,7 @@ cargarModelo('./modelo/panredu2.glb',panuelo);
 panuelo.scale.set(15,15,15);
 
 var objetos = []
-for(int p=0;p<puntos.length;p++){
+for(var p=0;p<puntos.length;p++){
     objetos[p] = new THREE.Object3D();
     for (let i=0; i<poss.length; i++) {
         let luz1 = new THREE.PointLight( 0xffffff, 3, 100 );
