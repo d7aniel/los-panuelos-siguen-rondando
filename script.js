@@ -38,6 +38,7 @@ panuelo.scale.set(15,15,15);
 
 var objetos = []
 for(var p=0;p<puntos.length;p++){
+    console.log("version con varios puntos "+p)
     objetos[p] = new THREE.Object3D();
     for (let i=0; i<poss.length; i++) {
         let luz1 = new THREE.PointLight( 0xffffff, 3, 100 );
@@ -49,7 +50,7 @@ for(var p=0;p<puntos.length;p++){
 //objeto.add( ambiental );
     for (let i=0; i<cant; i++) {
       particulas[p*cant+i] = new Particula();
-      objetos[p].add(particulas[i].modelo);
+      objetos[p].add(particulas[p*cant+i].modelo);
     }
     puntos[p].object3D.add( objetos[p] );
     
