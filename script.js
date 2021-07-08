@@ -8,7 +8,7 @@ var panuelo = new THREE.Object3D();
 var cant = 20;
 var radio = 70;
 var lista = [
-    {lt:-34.902955600669635,lg:-57.96845529131973},
+    {lt:-34.903659,lg:-57.969163},
     {lt:-34.914454,lg:-57.946792},
            
 ];
@@ -47,7 +47,7 @@ for (let i=0; i<cant; i++) {
   particulas[i] = new Particula();
   objeto.add(particulas[i].modelo);
 }
-for(var i=0;i<lista.length;i++){
+for(var i=0;i<puntos.length;i++){
     puntos[i].object3D.add( objeto );
 }
 
