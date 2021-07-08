@@ -8,10 +8,9 @@ var panuelo = new THREE.Object3D();
 var cant = 15;
 var radio = 70;
 var lista = [
-    {lt:-34.903582,lg:-57.969758},
-    {lt:-34.53778008717742,lg:-58.49837191472498},
     {lt:-34.9275039,lg:-57.9371359},
-   
+    {lt:-34.903582,lg:-57.969758},
+    {lt:-34.53778008717742,lg:-58.49837191472498},  
     
     //{lt:-34.903582,lg:-57.969758},
     //{lt:-34.914454,lg:-57.946792}//,
@@ -42,7 +41,7 @@ cargarModelo('./modelo/panredu2.glb',panuelo);
 panuelo.scale.set(15,15,15);
 
 var objeto = new THREE.Object3D();
-console.log("version 2 con varios puntos nuevitaaa ")
+console.log("version 3 con varios puntos nuevitaaa con sistema mejorado por distancia ")
 for (let i=0; i<poss.length; i++) {
     let luz1 = new THREE.PointLight( 0xffffff, 3, 100 );
     luz1.position.set(poss[i].x,50,poss[i].y);
