@@ -25,8 +25,8 @@ var puntos = [];
 for(var i=0;i<1;i++){
     puntos[i] = document.createElement('a-entity');//document.getElementById('plaza');
     puntos[i].setAttribute('id','punto'+i);
-    console.log("creando"+`latitude: ${lista[0].lt}; longitude: ${lista[0].lg};`);
-    puntos[i].setAttribute('gps-entity-place', `latitude: ${lista[0].lt}; longitude: ${lista[0].lg};`);
+    console.log("creando "+`latitude: ${lista[i].lt}; longitude: ${lista[i].lg};`);
+    puntos[i].setAttribute('gps-entity-place', `latitude: ${lista[i].lt}; longitude: ${lista[i].lg};`);
     escena.appendChild(puntos[i]);
 }
 //cargarModelo('./modelo/panredu.glb',modelo[i]);
