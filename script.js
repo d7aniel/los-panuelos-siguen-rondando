@@ -22,10 +22,10 @@ var poss = [
 var escena = document.querySelector('a-scene');
 var puntos = [];
 for(var i=0;i<lista.length;i++){
-    punto[i] = document.createElement('a-entity');//document.getElementById('plaza');
-    punto[i].setAttribute('id','punto'+i);
-    punto[i].setAttribute('gps-entity-place', `latitude: ${lista[i].lt}; longitude: ${lista[i].lg};`);
-    escena.appendChild(punto[i]);
+    puntos[i] = document.createElement('a-entity');//document.getElementById('plaza');
+    puntos[i].setAttribute('id','punto'+i);
+    puntos[i].setAttribute('gps-entity-place', `latitude: ${lista[i].lt}; longitude: ${lista[i].lg};`);
+    escena.appendChild(puntos[i]);
 }
 //cargarModelo('./modelo/panredu.glb',modelo[i]);
 //modelo[i].scale.set(15,15,15);
@@ -47,7 +47,7 @@ for (let i=0; i<cant; i++) {
   objeto.add(particulas[i].modelo);
 }
 for(var i=0;i<lista.length;i++){
-    punto[i].object3D.add( objeto );
+    puntos[i].object3D.add( objeto );
 }
 
 function animar(){
