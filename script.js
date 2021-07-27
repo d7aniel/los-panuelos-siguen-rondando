@@ -14,11 +14,12 @@ var lista = [
     {lt:-38.04076400458284,lg:-57.54762976653282},//mar del plata
     {lt:-42.762936720431135,lg: -65.03450371862945},
     {lt:-42.784705116470974,lg: -65.00860162317883},
-    {lt:-42.78600319251691,lg:-65.00757861584869}
-    
+    {lt:-42.78600319251691,lg:-65.00757861584869},
+    {lt:-38.04082056323792, lg:-57.54760432137781}//Av. Edison 301, B7603BKG Mar del Plata, Provincia de Buenos Aires
+
     //{lt:-34.903582,lg:-57.969758},
-    //{lt:-34.914454,lg:-57.946792}//,
-           
+    //{lt:-34.914454,lg:-57.946792}//,//plaza san martin
+
 ];
 var poss = [
   new THREE.Vector2(0, 0),
@@ -29,6 +30,7 @@ var poss = [
 ];
 
 var escena = document.querySelector('a-scene');
+console.log(escena);
 var puntos = [];
 for(var i=0;i<6;i++){
     puntos[i] = document.createElement('a-entity');//document.getElementById('plaza');
@@ -57,7 +59,7 @@ for (let i=0; i<poss.length; i++) {
 for (let i=0; i<cant; i++) {
   particulas[i] = new Particula();
   objeto.add(particulas[i].modelo);
-}  
+}
 
 
 var texto =  document.createElement("div");
@@ -70,8 +72,8 @@ texto.style.transform= "translate(-50%,0%)";
 
 titulo.style.color = "#ff0000";
 subtitulo.style.color = "#ff0000";
-titulo.style.textAlign = "center"; 
-subtitulo.style.textAlign = "center"; 
+titulo.style.textAlign = "center";
+subtitulo.style.textAlign = "center";
 
 titulo.innerText = "Espere un momento";
 subtitulo.innerText = "Cargando ubicacion"
@@ -102,13 +104,13 @@ function animar(){
         if(imprimir){
             var menor = parseFloat(puntos[0].getAttribute('distance'))
             var indice = 0;
-            for(var i=1;i<puntos.length;i++){                
+            for(var i=1;i<puntos.length;i++){
                 console.log(puntos[i].getAttribute('distance'));
                 if(parseFloat(puntos[i].getAttribute('distance'))<menor){
                     indice = i
                     menor = parseFloat(puntos[i].getAttribute('distance'));
                 }
-            }            
+            }
             console.log(puntos[indice]);
             puntos[indice].object3D.add( objeto );
             texto.remove();
