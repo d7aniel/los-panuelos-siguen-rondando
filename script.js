@@ -16,7 +16,8 @@ var lista = [
     {lt:-42.784705116470974,lg: -65.00860162317883},
     {lt:-42.78600319251691,lg:-65.00757861584869},
     {lt:-38.04082056323792, lg:-57.54760432137781},//Av. Edison 301, B7603BKG Mar del Plata, Provincia de Buenos Aires
-    {lt:-34.6084608, lg:-58.3721794}//plaza de mayo
+    {lt:-34.6084608, lg:-58.3721794},//plaza de mayo
+    {lt:-0.1963315, lg:-78.5013965},
 
     //{lt:-34.903582,lg:-57.969758},
     //{lt:-34.914454,lg:-57.946792}//,//plaza san martin
@@ -33,7 +34,7 @@ var poss = [
 var escena = document.querySelector('a-scene');
 console.log(escena);
 var puntos = [];
-for(var i=0;i<8;i++){
+for(var i=0;i<10;i++){
     puntos[i] = document.createElement('a-entity');//document.getElementById('plaza');
     puntos[i].setAttribute('id','punto'+i);
     console.log("creando "+`latitude: ${lista[i].lt}; longitude: ${lista[i].lg};`);
