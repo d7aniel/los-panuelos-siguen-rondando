@@ -36,7 +36,7 @@ var poss = [
 var escena = document.querySelector('a-scene');
 console.log(escena);
 var puntos = [];
-for(var i=0;i<10;i++){
+for(var i=0;i<11;i++){
     puntos[i] = document.createElement('a-entity');//document.getElementById('plaza');
     puntos[i].setAttribute('id','punto'+i);
     console.log("creando "+`latitude: ${lista[i].lt}; longitude: ${lista[i].lg};`);
