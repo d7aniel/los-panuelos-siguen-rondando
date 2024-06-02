@@ -9,6 +9,7 @@ export let lista = [
   { lt: -32.947081, lg: -60.633174 }, //Rosario, Plaza 25 de mayo
   { lt: -41.13346, lg: -71.310158 }, // Bariloche . Centro Civico
   { lt: -31.649302, lg: -60.709192 }, // Santa Fe, Plaza del soldado
+  { lt: -36.777042, lg: -59.862955 }, // Azul
   // { lt: -42.78600319251691, lg: -65.00757861584869 },
   //   { lt: -34.886436, lg: -58.005834 },
   // { lt: -34.8863938, lg: -58.005902 },
